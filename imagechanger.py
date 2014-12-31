@@ -10,7 +10,7 @@ app = Flask(__name__, static_folder = 'wsgi/static')
 app.config['APP_PATH'] = os.path.dirname(os.path.abspath(__file__))
 
 if ON_OPENSHIFT:
-	app.debug = False
+	app.debug = True
 	app.config['TEMP_DIR'] = os.environ['OPENSHIFT_TEMP_DIR']
 else:
 	app.debug = True
