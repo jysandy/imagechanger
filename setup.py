@@ -7,6 +7,6 @@ setup(name='Image Changer',
       author_email='jysandilya@gmail.com',
       url='http://www.python.org/sigs/distutils-sig/',
       install_requires=[
-		  'Flask>=0.10',
-		  'Pillow'],
+		  'Flask==0.10.1',
+		  'Pillow==2.3.0']
      )
