@@ -9,6 +9,7 @@ ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'gif', 'png', 'bmp'])
 
 app = Flask(__name__, static_folder = 'wsgi/static')
 app.config['APP_PATH'] = os.path.dirname(os.path.abspath(__file__))
+app.config['STATIC_DIR'] = os.path.join(app.config['APP_PATH'], 'wsgi/static')
 
 if ON_OPENSHIFT:
 	app.debug = False
@@ -45,7 +46,7 @@ def main_page():
 				return response
 			return send_file(newname, as_attachment = True)
 	
-	return render_template('main_page.html')
+	return render_template('main_page.html', static_dir = app.config['STATIC_DIR'])
 
 
 def has_allowed_extension(filename):

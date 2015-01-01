@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-
 <html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/gumby.css') }}">
+		<title>Image Changer</title>
+	</head>
 	<body>
-		<form method="post" role="form" enctype="multipart/form-data">
-			<select name="format">
-				<option value="jpg">JPG</option>
-				<option value="png">PNG</option>
-				<option value="gif">GIF</option>
-				<option value="bmp">BMP</option>
-			</select>
-			<input type="file" name="file">
-			<input type="submit" value="Upload">
-		</form>
+		<div class="row">
+			<div class="centered three columns">
+				<form method="post" role="form" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="format">New format:</label>
+						<select name="format" id="format" class="form-control">
+							<option value="jpg">JPG</option>
+							<option value="png">PNG</option>
+							<option value="gif">GIF</option>
+							<option value="bmp">BMP</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="file">Choose your image:</label>
+						<input type="file" name="file" id="file">
+					</div>
+					<div class="row">
+						<div class="centered twelve columns">
+							<div class="medium btn primary icon-left entypo icon-upload">
+								<button type="submit">Upload and convert</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script gumby-touch="{{ static_dir + '/js/libs' }}" src="{{ url_for('static', filename='js/libs/gumby.min.js') }}"></script>
 	</body>
 </html>
